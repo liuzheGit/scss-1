@@ -1,3 +1,45 @@
-h1 {
-  color: red;
+$mc: rgb(130, 94, 94);
+$dy: darkcyan;
+
+$yy: yellow;
+%box{
+  box-shadow: 0 0 14px $yy;
+  border-radius: 4px;
+  border: 1px solid $yy;
+}
+
+@mixin sha($color: red){
+  box-shadow: 0 0 14px $color;
+  border-radius: 10px;
+  border: 6px solid $color;
+}
+
+body {
+  background-color: $mc;
+  .test{
+    background-color: #9db886;
+    min-height: 200px;
+    padding: 32px;
+    ul{
+      list-style-type: none;
+      @extend %box;
+      li{
+        color: rgb(157, 255, 157);
+        margin: 8px;
+        @include sha;
+      }
+    }
+  }
+}
+
+.demo{
+  height: 200px;
+  @include sha($dy);
+}
+
+.test2{
+  max-width: 400px;
+  margin: 0 auto;
+  height: 50px;
+  @extend %box;
 }
